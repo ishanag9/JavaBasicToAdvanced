@@ -12,25 +12,23 @@ public class SumOfOddEvenPlacedDigits {
         Scanner s = new Scanner(System.in);
         System.out.println("Enter number");
         int num = s.nextInt();
-        int rev = 0;
+
         int rem;
+
         int c = 1, sumEven = 0, sumOdd = 0;
+
         while (num != 0) {
-            rem = num % 10;
-            rev = rev * 10 + rem;
-            num = num / 10;
-        }
-        while (rev != 0) {
             if (c % 2 == 0) {
-                sumEven = sumEven + rev % 10;
+                sumEven = sumEven + num % 10;
             } else {
-                sumOdd = sumOdd + rev % 10;
+                sumOdd = sumOdd + num % 10;
             }
-            rev = rev / 10;
+            num = num / 10;
             c++;
         }
-        System.out.println(sumEven + " <--SumEven");
         System.out.println(sumOdd + " <--SumOdd");
+        System.out.println(sumEven + " <--SumEven");
+
     }
 
 }
