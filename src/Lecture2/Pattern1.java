@@ -7,11 +7,15 @@
 
 package Lecture2;
 
+import java.util.Scanner;
+
 public class Pattern1 {
     public static void main(String[] args) {
-        int n = 5;
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter range");
+        int n = s.nextInt();
         int row = 1;
-        int nst = 5;
+        int nst = n;
         while (row <= n) {
             int cst = 1;
             while (cst <= nst) {
