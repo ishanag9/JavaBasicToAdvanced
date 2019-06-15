@@ -1,17 +1,19 @@
 //Print following pattern (eg. range = 5)
-/*
-      *****
-        ****
-          ***
-            **
-              *
-*/
+// *****
+//   ****
+//     ***
+//       **
+//         *
+//       **
+//     ***
+//   ****
+// *****
 
 package Lecture2;
 
 import java.util.Scanner;
 
-public class Pattern5 {
+public class Pattern6 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         System.out.println("<--Enter range-->");
@@ -19,7 +21,7 @@ public class Pattern5 {
         int row = 1;
         int nst = n;
         int nsp = 0;
-        while (row <= n) {
+        while (row <= 2 * n - 1) {
             int csp = 1;
             while (csp <= nsp) {
                 System.out.print(" ");
@@ -30,10 +32,16 @@ public class Pattern5 {
                 System.out.print("*");
                 cst++;
             }
-            System.out.println();
-            nst--;
-            nsp = nsp + 2;
+            if (row < n) {
+                nst--;
+                nsp = nsp + 2;
+            } else {
+                nst++;
+                nsp = nsp - 2;
+            }
             row++;
+            System.out.println();
         }
+
     }
 }
