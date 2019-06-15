@@ -1,4 +1,4 @@
-//Print following pattern (range = 5)
+//Print following pattern (eg. range = 5)
 /*
         1
         2*2

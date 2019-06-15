@@ -1,4 +1,4 @@
-//Print following pattern (range = 8)
+//Print following pattern (eg. range = 8)
 //        *
 //        **
 //        ***
