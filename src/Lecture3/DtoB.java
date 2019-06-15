@@ -11,6 +11,5 @@ public class DtoB {
             n = n / 2;
         }
         System.out.print(1);
-
     }
 }
