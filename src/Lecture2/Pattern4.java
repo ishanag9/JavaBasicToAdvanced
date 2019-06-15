@@ -1,34 +1,36 @@
 //Print following pattern (range = 5)
 /*
         1
-        2	3
-        4	5	6
-        7	8	9	10
-        11	12	13	14	15
+        2*2
+        3*3*3
+        4*4*4*4
+        5*5*5*5*5
 */
 
 package Lecture2;
 
 import java.util.Scanner;
 
-public class Pattern3 {
+public class Pattern4 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         System.out.println("<--Enter range-->");
         int n = s.nextInt();
         int row = 1;
         int nst = 1;
-        int value = 1;
         while (row <= n) {
             int cst = 1;
             while (cst <= nst) {
-                System.out.print(value + "\t");
+                if (cst % 2 == 0) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(row);
+                }
                 cst++;
-                value++;
             }
             System.out.println();
-            nst++;
             row++;
+            nst = nst + 2;
         }
     }
 }
