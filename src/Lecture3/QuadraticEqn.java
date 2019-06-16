@@ -31,7 +31,8 @@ public class QuadraticEqn {
             System.out.println("Imaginary");
             root1 = root2 = (-b) / (2 * a);
             int i = (int) ((Math.sqrt(-d)) / (2 * a));
-            System.out.println(root1 + "+" + i + "i" + " " + root2 + "-" + i + "i");
+//            System.out.println(root1 + "+" + i + "i" + " " + root2 + "-" + i + "i");
+            System.out.println(root1 + "+i" + i + " " + root2 + "-i" + i);
         }
     }
 }
