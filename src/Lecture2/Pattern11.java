@@ -1,23 +1,25 @@
-//Print following pattern (eg. range = 4)
-//        1
-//       232
-//      34543
-//     4567654
+//PATTERN RHOMBUS (N=3)
+//         1
+//       2 3 2
+//     3 4 5 4 3
+//       2 3 2
+//         1
 
 package Lecture2;
 
 import java.util.Scanner;
 
-public class Pattern7 {
+public class Pattern11 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         System.out.println("<--Enter range-->");
         int n = s.nextInt();
         int row = 1;
 
-        while (row <= n) {
+        while (row <= 2*n-1) {
             int csp = 1;
-            while (csp <= n - row) {
+            int nsp = n -row;
+            while (csp <= nsp) {
                 System.out.print(" ");
                 csp++;
             }
@@ -34,6 +36,11 @@ public class Pattern7 {
                 System.out.print(value);
                 value--;
                 cst++;
+            }
+            if(row<n){
+                nsp--;
+            }else{
+                nsp++;
             }
             row++;
             System.out.println();
