@@ -1,5 +1,5 @@
 //Use of Datatypes
-//Convert fahrenheit to calcius
+//Convert fahrenheit to celsius
 package Lecture3;
 
 import java.util.Scanner;
