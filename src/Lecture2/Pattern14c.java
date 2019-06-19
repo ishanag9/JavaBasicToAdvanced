@@ -10,7 +10,7 @@ package Lecture2;
 
 import java.util.*;
 
-public class Pattern14 {
+public class Pattern14c {
     public static void main(String[] args) {
         int i, j, k, l, n;
         Scanner s = new Scanner(System.in);

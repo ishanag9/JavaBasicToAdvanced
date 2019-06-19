@@ -15,9 +15,13 @@ import java.util.Scanner;
 
 public class Pattern15 {
     public static void main(String[] args) {
+
+//        double startTime = System.nanoTime();
+
         Scanner s = new Scanner(System.in);
         System.out.println("Enter range");
         int n = s.nextInt();
+//        int n = 5;
         int row = 1;
         int nsp = 0;
         int nst = n;
@@ -52,7 +56,12 @@ public class Pattern15 {
         }
         printzero(n);
         lowerhalf(n);
+
+//        double endTime   = System.nanoTime();
+//        double totalTime = (endTime - startTime)/1000000000;
+//        System.out.println(totalTime);
     }
+
 
     private static void lowerhalf(int n) {
         int row = 1;
@@ -105,4 +114,5 @@ public class Pattern15 {
         }
 
     }
+
 }
