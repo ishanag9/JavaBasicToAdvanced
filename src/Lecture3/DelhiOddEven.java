@@ -15,32 +15,29 @@ public class DelhiOddEven {
         Scanner s = new Scanner(System.in);
         System.out.println("Enter no. of vehicles");
         int ncars = s.nextInt();
-        int sum = 0;
+        int sum1 = 0, sum2 = 0;
         int i = 1;
         while (i <= ncars) {
             System.out.println("Enter unique vehicle number");
             int n = s.nextInt();
             while (n != 0) {
                 int rem = n % 10;
-                sum = sum + rem;
-                n = n / 10;
-            }
-            i++;
-            if (sum % 2 == 0) {
-                if (sum % 4 == 0) {
-                    System.out.println("Allowed");
+                if (rem % 2 == 0) {
+                    sum1 = sum1 + rem;
+                    n = n / 10;
                 } else {
-                    System.out.println("Not Allowed");
+                    sum2 = sum2 + rem;
+                    n = n / 10;
                 }
+            }
+            if (sum1 % 4 != 0 && sum2 % 3 != 0) {
+                System.out.println("Not Allowed");
             } else {
-                if (sum % 3 == 0) {
-                    System.out.println("Allowed");
-                } else {
-                    System.out.println("Not allowed");
-                }
+                System.out.println("Allowed");
             }
+            sum1=0;
+            sum2=0;
+            i++;
         }
-
-
     }
 }

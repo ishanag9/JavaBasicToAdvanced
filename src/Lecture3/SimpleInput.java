@@ -14,7 +14,7 @@ public class SimpleInput {
         while (sum >= 0) {
             int n = s.nextInt();
             sum = sum + n;
-            if (sum > 0) {
+            if (sum >= 0) {
                 System.out.println(n);
             } else {
                 return;

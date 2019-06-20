@@ -6,10 +6,10 @@ public class ChewbaccaAndNumber {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         System.out.println("Enter number");
-        int n = s.nextInt();
-        int rem1 = 0;
-        int rem2 = 0;
-        int count = 0;
+        long n = s.nextLong();
+        long rem1 = 0;
+        long rem2 = 0;
+        long count = 0;
         while (n != 0) {
             rem1 = n % 10;
             n = n / 10;

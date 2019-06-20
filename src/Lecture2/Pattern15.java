@@ -29,23 +29,23 @@ public class Pattern15 {
         while (row <= n) {
             int csp = 1;
             while (csp <= nsp) {
-                System.out.print(" ");
+                System.out.print("\t");
                 csp++;
             }
             nsp++;
             int cst = 1;
             while (cst <= nst) {
-                System.out.print(value);
+                System.out.print(value+"\t");
                 value--;
                 cst++;
             }
             if (value < nst) {
-                System.out.print("0");
+                System.out.print("0\t");
             }
             cst = 1;
             value++;
             while (cst <= nst) {
-                System.out.print(value);
+                System.out.print(value+"\t");
                 value++;
                 cst++;
             }
@@ -71,23 +71,23 @@ public class Pattern15 {
         while (row <= n) {
             int csp = 1;
             while (csp <= nsp) {
-                System.out.print(" ");
+                System.out.print("\t");
                 csp++;
             }
             nsp--;
             int cst = 1;
             while (cst <= nst) {
-                System.out.print(value);
+                System.out.print(value+"\t");
                 value--;
                 cst++;
             }
             if (value < cst) {
-                System.out.print("0");
+                System.out.print("0\t");
             }
             cst = 1;
             value++;
             while (cst <= nst) {
-                System.out.print(value);
+                System.out.print(value+"\t");
                 value++;
                 cst++;
             }
@@ -104,12 +104,12 @@ public class Pattern15 {
         int nsp = n;
         int csp = 1;
         while (csp <= nsp) {
-            System.out.print(" ");
+            System.out.print("\t");
             csp++;
         }
         int cst = 1;
         while (cst <= nst) {
-            System.out.println("0");
+            System.out.println("0\t");
             cst++;
         }
 
