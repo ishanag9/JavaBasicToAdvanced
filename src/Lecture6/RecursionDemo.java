@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class RecursionDemo {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-//        int n = s.nextInt();
+        int n = s.nextInt();
 
-//        PDISKIP(n);
+        PDISKIP(n);
 
 //        System.out.println(factorial(n));
 

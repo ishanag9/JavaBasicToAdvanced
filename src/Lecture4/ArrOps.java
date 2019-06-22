@@ -1,11 +1,12 @@
+//Array operations
 package Lecture4;
 
 public class ArrOps {
     public static void main(String[] args) {
-        int[] arr = {50, 40, 30, 20, 10};
+        int[] arr = {10, 20, 30, 40, 50};
         System.out.println("Current Array");
         display(arr);
-//        reverse(arr);
+        reverse(arr);
 
 // Find maximum in the array
         int maxValue = max(arr);
@@ -17,18 +18,30 @@ public class ArrOps {
 // Data should be sorted to use binary search
         System.out.println("Index by binary search: " + binarySearch(arr, maxValue));
 
-//        bubblesort(arr);
-//        selectionsort(arr);
+// Repeatedly swapping the elements if they are in wrong order
+        bubblesort(arr);
+
+// We search for the lowest element & arrange it to the proper location
+        selectionsort(arr);
+
+// It works the way we sort playing cards in our hands
         insertionsort(arr);
     }
 
     private static void insertionsort(int[] arr) {
-
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = i; j > 0 && arr[j] < arr[j - 1]; j--) {
+                swap(arr, j, j - 1);
+            }
+        }
+        System.out.println("After insertion sort: ");
+        display(arr);
     }
+
 
     private static void selectionsort(int[] arr) {
         int min = 0;
-        for (int i = 0; i < arr.length - 1 ; i++) {
+        for (int i = 0; i < arr.length - 1; i++) {
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[j] < arr[min]) {
                     min = j;
