@@ -26,12 +26,12 @@ public class RecursionDemo {
         int value = 8;
 //        System.out.println(firstIndex(arr2, i, value));
 //        System.out.println(lastIndex(arr2, i, value));
-        allIndices(arr2, i, value);
+//        allIndices(arr2, i, value);
     }
 
-    private static int[] allIndices(int[] arr2, int i, int value) {
-
-    }
+//    private static int[] allIndices(int[] arr2, int i, int value) {
+//
+//    }
 
 //    private static int lastIndex(int[] arr2, int i, int value) {
 //        int j = arr2.length-1;
