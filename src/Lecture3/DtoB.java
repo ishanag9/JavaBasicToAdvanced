@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class DtoB {
     public static void main(String[] args) {
         Scanner s=new Scanner(System.in);
-        System.out.println("Enter decimal number to convert");
+        System.out.println("Enter decimal number to convert in Binary");
         int dec = s.nextInt();
         int bin = 0;
         int tenpowers = 1;
