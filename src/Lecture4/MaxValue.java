@@ -9,7 +9,7 @@
 
 package Lecture4;
 
-import java.util.Scanner;
+        import java.util.Scanner;
 
 public class MaxValue {
     public static void main(String[] args) {
