@@ -21,9 +21,9 @@ public class StringCompression {
                 } else {
                     sb.append(cc);
                 }
-                cc = str.charAt(i);
-                count = 1;
             }
+            cc = str.charAt(i);
+            count = 1;
         }
         if (count > 1) {
             sb.append("" + cc + count);
