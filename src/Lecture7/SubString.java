@@ -22,8 +22,8 @@ public class SubString {
         char ros = str.charAt(1);
 
 
-        printPermutations();
-        printPermutations();
+//        printPermutations();
+//        printPermutations();
 
     }
 
