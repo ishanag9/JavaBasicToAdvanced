@@ -40,7 +40,7 @@ public class PairOfRoses {
                         System.out.println("Deepak should buy roses whose prices are " +
                                 arr[i] +
                                 " and " +
-                                arr[j] + " .");
+                                arr[j] + ".");
                         System.out.println();
                     }
                 }
