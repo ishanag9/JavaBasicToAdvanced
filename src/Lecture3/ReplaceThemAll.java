@@ -7,15 +7,15 @@ public class ReplaceThemAll {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         System.out.println("Enter number");
-        int n = s.nextInt();
+        long n = s.nextInt();
         replace(n);
     }
 
-    private static void replace(int n) {
+    private static void replace(long n) {
         int rem;
         int k = 0;
         while (n != 0) {
-            rem = n % 10;
+            rem = (int) (n % 10);
             if (rem != 0) {
                 k = k * 10 + rem;
             } else {
