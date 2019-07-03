@@ -2,7 +2,7 @@ package Lecture3;
 
 public class CashCS50 {
     public static void main(String[] args) {
-        int change = 13;
+        int change = 32;
         int quarters = 25;
         int dimes = 10;
         int nickle = 5;
