@@ -40,9 +40,30 @@ public class QueueUsingArrays {
     }
 
     public int dequeue() throws Exception {
-        if (isEmpty()) {
-            throw new Exception("Queue id EMPTY");
+        if (this.isEmpty()) {
+            throw new Exception("Queue is EMPTY");
+        }
+        int rv = this.data[this.front];
+        this.data[this.front] = 0;
+        this.front = (this.front + 1) % this.data.length;
+        this.size--;
+        return rv;
+    }
+
+    public int front() throws Exception {
+        if (this.isEmpty()) {
+            throw new Exception("Queue is Empty");
         }
 
+        int rv = this.data[this.front];
+        return rv;
+    }
+
+    public void display() {
+        for (int i = 0; i < this.size; i++) {
+            int ai = (this.front + i) % this.data.length;
+            System.out.print(this.data[ai] + "=>");
+        }
+        System.out.println("END");
     }
 }
