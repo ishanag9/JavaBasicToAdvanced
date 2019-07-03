@@ -25,6 +25,7 @@ public class StackUsingArrays {
 
     public boolean isEmpty() {
         //this.size == 0
+        //this.tos == -1
         if (this.tos == -1) {
             return true;
         } else {
