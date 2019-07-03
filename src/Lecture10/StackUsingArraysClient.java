@@ -7,6 +7,12 @@ public class StackUsingArraysClient {
             stack.push(i * 10);
             displayStackInfo(stack);
         }
+        stack.pop();
+            stack.pop();
+            stack.pop();
+            stack.pop();
+//        stack.pop();
+        displayStackInfo(stack);
     }
 
     private static void displayStackInfo(StackUsingArrays stack) throws Exception{
