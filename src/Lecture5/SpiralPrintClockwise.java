@@ -36,7 +36,7 @@ public class SpiralPrintClockwise {
 
     private static void spiralPrint(int[][] arr) {
         int top = 0, left = 0;
-        int bottom = arr[left].length - 1;
+        int bottom = arr.length - 1;
         int right = arr[top].length - 1;
         int dir = 1;
         int count = (bottom + 1) * (right + 1);
@@ -45,7 +45,7 @@ public class SpiralPrintClockwise {
             if (count > 0) {
                 if (dir == 1) {
                     for (int i = left; i <= right; i++) {
-                        System.out.print(arr[top][i]+", ");
+                        System.out.print(arr[top][i] + "," + " ");
                         count--;
                     }
                 }
@@ -56,7 +56,7 @@ public class SpiralPrintClockwise {
             if (count > 0) {
                 if (dir == 2) {
                     for (int i = top; i <= bottom; i++) {
-                        System.out.print(arr[i][right]+", ");
+                        System.out.print(arr[i][right] + "," + " ");
                         count--;
                     }
                 }
@@ -67,7 +67,7 @@ public class SpiralPrintClockwise {
             if (count > 0) {
                 if (dir == 3) {
                     for (int i = right; i >= left; i--) {
-                        System.out.print(arr[bottom][i]+", ");
+                        System.out.print(arr[bottom][i] + "," + " ");
                         count--;
                     }
                 }
@@ -78,7 +78,7 @@ public class SpiralPrintClockwise {
             if (count > 0) {
                 if (dir == 4) {
                     for (int i = bottom; i >= top; i--) {
-                        System.out.print(arr[i][left]+", ");
+                        System.out.print(arr[i][left] + "," + " ");
                         count--;
                     }
                 }
