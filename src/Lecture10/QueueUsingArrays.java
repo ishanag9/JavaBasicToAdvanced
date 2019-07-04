@@ -2,11 +2,11 @@ package Lecture10;
 
 public class QueueUsingArrays {
 
-    private int[] data;
-    private int front;
-    private int size;
+    public int[] data;
+    public int front;
+    public int size;
 
-    private static final int DEFAULT_CAPACITY = 10;
+    public static final int DEFAULT_CAPACITY = 10;
 
     public QueueUsingArrays() throws Exception {
         this(DEFAULT_CAPACITY);
