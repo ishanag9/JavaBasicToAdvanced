@@ -2,6 +2,7 @@
 
 package Lecture14;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class BinaryTree {
@@ -268,6 +269,6 @@ public class BinaryTree {
     }
 
     private void levelOrder(Node node) {
-        
+        LinkedList<>
     }
 }
