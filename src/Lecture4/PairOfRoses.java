@@ -11,37 +11,39 @@ public class PairOfRoses {
         while (t > 0) {
             System.out.println("Enter number of available roses");
             int n = s.nextInt();
-            int[] arr = new int[n];
-            inputarr(arr, s);
-            Arrays.sort(arr);
-            System.out.println("Enter money deepak have");
-            int money = s.nextInt();
-            int sum = 0;
-            boolean test = true;
-            for (int i = 0; i < arr.length; i++) {
-                for (int j = i + 1; j < arr.length; j++) {
-                    if (arr[i] + arr[j] == money) {
-                        if (test) {
-                            sum = arr[j] - arr[i];
-                            test = false;
-                        }
-                        int min = arr[j] - arr[i];
-                        if (min <= sum) {
-                            sum = min;
+            if (n >= 2 && n<=1000) {
+                int[] arr = new int[n];
+                arr = inputarr(arr, s);
+                Arrays.sort(arr);
+                System.out.println("Enter money deepak have");
+                int money = s.nextInt();
+                int sum = 0;
+                boolean test = true;
+                for (int i = 0; i < arr.length; i++) {
+                    for (int j = i + 1; j < arr.length; j++) {
+                        if (arr[i] + arr[j] == money) {
+                            if (test) {
+                                sum = arr[j] - arr[i];
+                                test = false;
+                            }
+                            int min = arr[j] - arr[i];
+                            if (min <= sum) {
+                                sum = min;
+                            }
                         }
                     }
                 }
-            }
-            for (int i = 0; i < arr.length; i++) {
-                for (int j = i + 1; j < arr.length; j++) {
+                for (int i = 0; i < arr.length; i++) {
+                    for (int j = i + 1; j < arr.length; j++) {
 
-                    if (arr[i] + arr[j] == money && arr[j] - arr[i] == sum) {
+                        if (arr[i] + arr[j] == money && arr[j] - arr[i] == sum) {
 
-                        System.out.println("Deepak should buy roses whose prices are " +
-                                arr[i] +
-                                " and " +
-                                arr[j] + ".");
-                        System.out.println();
+                            System.out.println("Deepak should buy roses whose prices are " +
+                                    arr[i] +
+                                    " and " +
+                                    arr[j] + ".");
+                            System.out.println();
+                        }
                     }
                 }
             }

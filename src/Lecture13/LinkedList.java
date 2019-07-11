@@ -1,5 +1,4 @@
-package Lecture12;
-
+package Lecture13;
 
 public class LinkedList {
     private class Node {
@@ -168,7 +167,7 @@ public class LinkedList {
     }
 
 
-//    reverse data without changing nodes pointer
+    //    reverse data without changing nodes pointer
     public void reverseDI() throws Exception {
         int beg = 0, end = this.size - 1;
         while (beg <= end) {
@@ -182,7 +181,8 @@ public class LinkedList {
         }
     }
 
-    public void reversePI()throws Exception {
+    //    reverse data with changing nodes pointer
+    public void reversePI() throws Exception {
         Node prev = this.head;
         Node curr = prev.next;
         while (curr != null) {
@@ -197,4 +197,65 @@ public class LinkedList {
         this.tail = temp;
         this.tail.next = null;
     }
+
+    public int mid() throws Exception {
+        return getMidNode().data;
+    }
+
+    private Node getMidNode() throws Exception {
+        Node slow = this.head;
+        Node fast = this.head;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    public int KthNodeFromEnd(int k) throws Exception {
+        if (k <= 0 && k > this.size) {
+            throw new Exception("Invalid value of k");
+        }
+        Node first = this.head;
+        Node second = this.head;
+        for (int i = 0; i < k; i++) {
+            second = second.next;
+        }
+        while (second != null) {
+            first = first.next;
+            second = second.next;
+        }
+        return first.data;
+    }
+
+    //    reverse data recursively without changing nodes pointer
+    public void reverseDR() {
+        HeapMover obj = new HeapMover(this.head);
+        this.reverseDR(obj, this.head, 0);
+    }
+
+    private void reverseDR(HeapMover obj, Node right, int index) {
+        if (right == null) {
+            return;
+        }
+
+        reverseDR(obj, right.next, index + 1);
+        if (index >= this.size / 2) {
+            int temp = obj.node.data;
+            obj.node.data = right.data;
+            right.data = temp;
+            obj.node = obj.node.next;
+        }
+    }
+
+    class HeapMover {
+        Node node;
+
+        public HeapMover(Node node) {
+            this.node = node;
+        }
+
+    }
+
+
 }
