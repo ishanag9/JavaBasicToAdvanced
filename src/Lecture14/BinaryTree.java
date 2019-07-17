@@ -265,10 +265,55 @@ public class BinaryTree {
 
 
     public void levelOrder() {
-        this.levelOrder(this.root);
+        LinkedList<Node> queue = new LinkedList<>();
+        queue.add(this.root);
+        while (!queue.isEmpty()) {
+            Node rv = queue.remove();
+            System.out.print(rv.data + " ");
+            if (rv.left != null) {
+                queue.add(rv.left);
+            }
+            if (rv.right != null) {
+                queue.add(rv.right);
+            }
+        }
     }
 
-    private void levelOrder(Node node) {
-        LinkedList<>
+    public boolean isBST() {
+        return this.isBST(this.root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
+
+    private boolean isBST(Node node, int min, int max) {
+        if (node == null) {
+            return true;
+        }
+        if (node.data < min || node.data > max) {
+            return false;
+        } else if (!isBST(node.left, min, node.data)) {
+            return false;
+        } else if (!isBST(node.right, node.data, max)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public int diameter() {
+        return this.diameter(this.root);
+    }
+
+    private int diameter(Node node) {
+        if (node == null) {
+            return 0;
+        }
+        int leftHeight = this.height(node.left);
+        int rightHeight = this.height(node.right);
+
+        int leftDiameter = this.diameter(node.left);
+        int rightDiameter = this.diameter(node.right);
+
+        return Math.max(leftHeight + rightHeight + 2, Math.max(leftDiameter, rightDiameter));
+    }
+
+
 }
