@@ -26,5 +26,15 @@ public class BinaryTreeClient {
 
         tree.postOrder();
         System.out.println();
+
+        tree.levelOrder();
+        System.out.println();
+
+        System.out.println(tree.isBST());
+
+
+
+        System.out.println(tree.diameter());
+
     }
 }
