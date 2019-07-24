@@ -76,7 +76,7 @@ Full Java Guide
   - GraphClient
 
 * Lecture20
-
+  - Dynamic Programming
 
 
 # CODE on Progress
