@@ -1,94 +1,157 @@
 package Lecture6;
 
-import java.util.Scanner;
-
 public class RecursionDemo {
+
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        int n = s.nextInt();
 
-        PDISKIP(n);
+        // PD(5);
+        // PI(5);
+//		PDI(5);
+        // PDISkip(5);
+//		System.out.println(fact(5));
+//		System.out.println(power(2, 5));
+//		System.out.println(fib(5));
 
-//        System.out.println(factorial(n));
-
-//        System.out.println("Enter x & n to find x^n");
-//        int x = s.nextInt();
-//        int n = s.nextInt();
-//        System.out.println(power(x, n));
-
-//        fibonacci(n);
-
-//        int[] arr = {3, 8, 9, 14, 17, 21};
-        int i = 0;
-//        isSorted(arr, i);
-
-        int[] arr2 = {3, 8, 9, 8, 8, 21};
-        int value = 8;
-//        System.out.println(firstIndex(arr2, i, value));
-//        System.out.println(lastIndex(arr2, i, value));
-//        allIndices(arr2, i, value);
-    }
-
-//    private static int[] allIndices(int[] arr2, int i, int value) {
-//
-//    }
-
-//    private static int lastIndex(int[] arr2, int i, int value) {
-//        int j = arr2.length-1;
-//
-//    }
-
-    private static int firstIndex(int[] arr2, int i, int value) {
-        if (arr2[i] == value) {
-            return i;
-        }
-        if (arr2[i] == arr2.length - 1) {
-            return -1;
-        } else {
-            return firstIndex(arr2, i + 1, value);
+        int[] arr = { 3, 8, 9, 8, 8, 21 };
+        // System.out.println(isSorted(arr, 0));
+//		System.out.println(firstIndex(arr, 0, 8));
+//		System.out.println(lastIndex(arr, 0, 8));
+        int[] ans = allIndices(arr, 0, 8, 0);
+        for (int i = 0; i < ans.length; i++) {
+            System.out.print(ans[i]+" ");
         }
     }
 
-//    private static boolean isSorted(int[] arr, int i) {
-//        if (arr[i] == arr.length) {
-//            return true;
-//        }
-//
-//
-//    }
-//
-//    private static int fibonacci(int n) {
-//
-//    }
-
-    private static int power(int x, int n) {
-        if (n == 0) {
-            return 1;
-        }
-        return (x * power(x, n - 1));
-
-    }
-
-    private static int factorial(int n) {
-        if (n == 1) {
-            return 1;
-        } else if (n <= 0) {
-            return 0;
-        } else {
-            return (n * factorial(n - 1));
-        }
-    }
-
-    private static void PDISKIP(int n) {
+    public static void PD(int n) {
         if (n == 0) {
             return;
         }
-        if (n % 2 != 0) {
+
+        System.out.println(n);
+        PD(n - 1);
+    }
+
+    public static void PI(int n) {
+        if (n == 0) {
+            return;
+        }
+
+        PI(n - 1);
+        System.out.println(n);
+    }
+
+    public static void PDI(int n) {
+        if (n == 0) {
+            return;
+        }
+        System.out.println(n);
+        PDI(n - 1);
+        System.out.println(n);
+    }
+
+    public static void PDISkip(int n) {
+        if (n == 0) {
+            return;
+        }
+
+        if (n % 2 == 1) {
             System.out.println(n);
         }
-        PDISKIP(n - 1);
+        PDISkip(n - 1);
+
         if (n % 2 == 0) {
             System.out.println(n);
         }
+    }
+
+    public static int fact(int n) {
+        if (n == 0) {
+            return 1;
+        }
+
+        int fnm1 = fact(n - 1);
+        int fn = n * fnm1;
+        return fn;
+    }
+
+    public static int power(int x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+
+        int pnm1 = power(x, n - 1);
+        int pn = x * pnm1;
+        return pn;
+    }
+
+    public static int fib(int n) {
+        if (n == 0 || n == 1) {
+            return n;
+        }
+        int fnm1 = fib(n - 1);
+        int fnm2 = fib(n - 2);
+        int fn = fnm1 + fnm2;
+        return fn;
+    }
+
+    public static boolean isSorted(int[] arr, int i) {
+        if (i == arr.length - 1) {
+            return true;
+        }
+        if (arr[i] > arr[i + 1]) {
+            return false;
+        } else {
+            boolean restans = isSorted(arr, i + 1);
+            return restans;
+        }
+    }
+
+    public static int firstIndex(int[] arr, int i, int data) {
+        if (i == arr.length) {
+            return -1;
+        }
+
+        if (arr[i] == data) {
+            return i;
+        } else {
+            int restans = firstIndex(arr, i + 1, data);
+            return restans;
+        }
+    }
+
+    public static int lastIndex(int[] arr, int i, int data) {
+        if (i == arr.length) {
+            return -1;
+        }
+
+        int index = lastIndex(arr, i + 1, data);
+        if (index != -1) {
+            return index;
+        } else {
+            if (arr[i] == data) {
+                return i;
+            } else {
+                return -1;
+            }
+        }
+
+    }
+
+    public static int[] allIndices(int[] arr, int i, int data, int count) {
+        if (i == arr.length) {
+            int[] br = new int[count];
+            return br;
+        }
+        int[] indices = null;
+        if (arr[i] == data) {
+            indices = allIndices(arr, i + 1, data, count + 1);
+        } else {
+            indices = allIndices(arr, i + 1, data, count);
+        }
+
+        if (arr[i] == data) {
+            indices[count] = i;
+        }
+        return indices;
     }
 }
