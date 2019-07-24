@@ -267,16 +267,23 @@ public class BinaryTree {
     public void levelOrder() {
         LinkedList<Node> queue = new LinkedList<>();
         queue.add(this.root);
+
         while (!queue.isEmpty()) {
             Node rv = queue.remove();
+
             System.out.print(rv.data + " ");
+
             if (rv.left != null) {
                 queue.add(rv.left);
             }
+
             if (rv.right != null) {
                 queue.add(rv.right);
             }
         }
+
+
+
     }
 
     public boolean isBST() {
