@@ -20,6 +20,7 @@ Full Java Guide
   
 * Lecture4
   - Array Operations
+  - Array List
   
 * Lecture5
   - String Operations
@@ -60,8 +61,11 @@ Full Java Guide
   - Binary Search Tree Demo
 
 * Lecture16
+    * Generics
+      - Demo
   - HashMap Demo
   - HashTable
+  - Genric Linked List
 
 * Lecture17
   - Heap
