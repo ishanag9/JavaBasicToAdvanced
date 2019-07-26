@@ -150,6 +150,8 @@ public class BST {
             return true;
         }
     }
+
+//    without recursion
 /*    public int height() {
         return this.height(this.root);
     }
@@ -170,6 +172,9 @@ public class BST {
         return totalHeight;
     }*/
 
+
+
+// with recursion
     public int height() {
         return this.height(this.root);
     }
