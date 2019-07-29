@@ -1,63 +1,57 @@
+// PAIR OF ROSES
+//Deepak has limited amount of money which he can spend on his girlfriend. So he decided to buy two roses for her.
+// Since roses are of varying sizes, their prices are different. Deepak wishes to completely spend that fixed amount
+// of money on buying roses. As he wishes to spend all the money, he should choose a pair of roses whose prices
+// when summed up are equal to the money that he has. Help Deepak choose such a pair of roses for his girlfriend.
+//NOTE: If there are multiple solutions print the solution that minimizes the difference between the prices i and j.
+// After each test case you must print a blank line.
+
 package Lecture4;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class PairOfRoses {
-    public static void main(String[] args) {
+    public static void main(String args[]) {
         Scanner s = new Scanner(System.in);
-        System.out.println("Enter test cases");
         int t = s.nextInt();
-        while (t > 0) {
-            System.out.println("Enter number of available roses");
+        int i = 0;
+        int sum = 0;
+        int a = 0;
+        int b = 0;
+
+        while (i < t) {
             int n = s.nextInt();
-            if (n >= 2 && n<=1000) {
-                int[] arr = new int[n];
-                arr = inputarr(arr, s);
-                Arrays.sort(arr);
-                System.out.println("Enter money deepak have");
-                int money = s.nextInt();
-                int sum = 0;
-                boolean test = true;
-                for (int i = 0; i < arr.length; i++) {
-                    for (int j = i + 1; j < arr.length; j++) {
-                        if (arr[i] + arr[j] == money) {
-                            if (test) {
-                                sum = arr[j] - arr[i];
-                                test = false;
-                            }
-                            int min = arr[j] - arr[i];
-                            if (min <= sum) {
-                                sum = min;
-                            }
-                        }
-                    }
-                }
-                for (int i = 0; i < arr.length; i++) {
-                    for (int j = i + 1; j < arr.length; j++) {
+            int arr[] = new int[n];
+            for (int j = 0; j < arr.length; j++) {
+                arr[j] = s.nextInt();
+            }
+            int minus = 0;
+            int minus1 = 0;
+            int m = s.nextInt();
+            for (int w = 0; w < arr.length - 1; w++) {
 
-                        if (arr[i] + arr[j] == money && arr[j] - arr[i] == sum) {
-
-                            System.out.println("Deepak should buy roses whose prices are " +
-                                    arr[i] +
-                                    " and " +
-                                    arr[j] + ".");
-                            System.out.println();
+                for (int j = w + 1; j < arr.length; j++) {
+                    sum = arr[w] + arr[j];
+                    if (sum == m) {
+                        if (arr[j] > arr[w])
+                            minus = arr[j] - arr[w];
+                        else
+                            minus = arr[w] - arr[j];
+                        if (minus < minus1 || minus1 == 0) {
+                            a = j;
+                            b = w;
+                            minus1 = minus;
                         }
+
                     }
                 }
             }
-
-            t--;
+            if (arr[a] >= arr[b])
+                System.out.println("Deepak should buy roses whose prices are " + arr[b] + " " + "and" + " " + arr[a] + ".");
+            else
+                System.out.println("Deepak should buy roses whose prices are " + arr[a] + " " + "and" + " " + arr[b] + ".");
+            System.out.println();
+            i++;
         }
-    }
-
-
-    private static int[] inputarr(int[] arr, Scanner s) {
-        System.out.println("Enter each roses price");
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = s.nextInt();
-        }
-        return arr;
     }
 }

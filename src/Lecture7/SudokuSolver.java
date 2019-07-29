@@ -1,3 +1,7 @@
+// SUDOKU SOLVER
+//You are given an N*N sudoku grid (N is a multiple of 3). Solve the sudoku and print the solution.
+//To learn more about sudoku, go to this link Sudoku-Wikipedia.
+
 package Lecture7;
 
 import java.util.*;
@@ -6,65 +10,66 @@ public class SudokuSolver {
     public static void main(String args[]) {
         // Your Code Here
         Scanner s = new Scanner(System.in);
-        int row = s.nextInt();
+        int ROW = s.nextInt();
+        int[][] array = new int[ROW][ROW];
 
-        int[][] array = new int[row][row];
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < row; j++) {
+        for (int i = 0; i < ROW; i++) {
+            for (int j = 0; j < ROW; j++) {
                 array[i][j] = s.nextInt();
             }
         }
 
-        if (solveSudoku(array, row)) {
-            print(array, row); // print solution
+        if (solveSudoku(array, ROW)) {
+            print(array, ROW); // print solution
         }
 
     }
-    public static void print(int[][] board, int N) {
+
+    private static void print(int[][] BOARD, int n) {
         // we got the answer, just print it
-        for (int r = 0; r < N; r++) {
-            for (int d = 0; d < N; d++) {
-                System.out.print(board[r][d]);
+        for (int r = 0; r < n; r++) {
+            for (int d = 0; d < n; d++) {
+                System.out.print(BOARD[r][d]);
                 System.out.print(" ");
             }
             System.out.print("\n");
 
-            if ((r + 1) % (int) Math.sqrt(N) == 0) {
+            if ((r + 1) % (int) Math.sqrt(n) == 0) {
                 System.out.print("");
             }
         }
     }
-    public static boolean isSafe(int[][] board, int row, int col, int number) {
-// row has the unique (row-clash)
-        for (int d = 0; d < board.length; d++) {
-// if the numberber we are trying to
+
+    private static boolean isSafe(int[][] BOARD, int ROW, int COL, int NUM) {
+// ROW has the unique (ROW-clash)
+        for (int d = 0; d < BOARD.length; d++) {
+// if the NUMber we are trying to
 // place is already present in
-// that row, return false;
-            if (board[row][d] == number) {
+// that ROW, return false;
+            if (BOARD[ROW][d] == NUM) {
                 return false;
             }
         }
 
-// column has the unique numberbers (column-clash)
-        for (int r = 0; r < board.length; r++) {
-// if the numberber we are trying to
+// COLumn has the unique NUMbers (COLumn-clash)
+        for (int r = 0; r < BOARD.length; r++) {
+// if the NUMber we are trying to
 // place is already present in
-// that column, return false;
-
-            if (board[r][col] == number) {
+// that COLumn, return false;
+            if (BOARD[r][COL] == NUM) {
                 return false;
             }
         }
 
 // corresponding square has
-// unique numberber (box-clash)
-        int sqrt = (int) Math.sqrt(board.length);
-        int boxRowStart = row - row % sqrt;
-        int boxColStart = col - col % sqrt;
+// unique NUMber (box-clash)
+        int sqrt = (int) Math.sqrt(BOARD.length);
+        int boxRowStart = ROW - ROW % sqrt;
+        int boxColStart = COL - COL % sqrt;
 
         for (int r = boxRowStart; r < boxRowStart + sqrt; r++) {
             for (int d = boxColStart; d < boxColStart + sqrt; d++) {
-                if (board[r][d] == number) {
+                if (BOARD[r][d] == NUM) {
                     return false;
                 }
             }
@@ -74,15 +79,15 @@ public class SudokuSolver {
         return true;
     }
 
-    public static boolean solveSudoku(int[][] board, int n) {
-        int row = -1;
-        int col = -1;
+    private static boolean solveSudoku(int[][] BOARD, int n) {
+        int ROW = -1;
+        int COL = -1;
         boolean isEmpty = true;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (board[i][j] == 0) {
-                    row = i;
-                    col = j;
+                if (BOARD[i][j] == 0) {
+                    ROW = i;
+                    COL = j;
 
                     // we still have some remaining
                     // missing values in Sudoku
@@ -100,21 +105,20 @@ public class SudokuSolver {
             return true;
         }
 
-// else for each-row backtrack
-        for (int number = 1; number <= n; number++) {
-            if (isSafe(board, row, col, number)) {
-                board[row][col] = number;
-                if (solveSudoku(board, n)) {
-                    // print(board, n);
+// else for each-ROW backtrack
+        for (int NUM = 1; NUM <= n; NUM++) {
+            if (isSafe(BOARD, ROW, COL, NUM)) {
+                BOARD[ROW][COL] = NUM;
+                if (solveSudoku(BOARD, n)) {
+                    // print(BOARD, n);
                     return true;
                 } else {
-                    board[row][col] = 0; // replace it
+                    BOARD[ROW][COL] = 0; // replace it
                 }
             }
         }
         return false;
     }
-
 
 
 }
